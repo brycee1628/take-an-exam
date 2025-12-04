@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>計算機網路 Ch02 — 模擬考 100 題</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial; line-height:1.6; color:#111; padding:20px; max-width:1000px; margin:0 auto; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:20px; }
+    h1 { font-size:1.4rem; margin:0; }
+    .meta { color:#555; font-size:0.9rem; }
+    .controls { display:flex; gap:8px; align-items:center; }
+    button { background:#0b71ea; color:white; border:0; padding:8px 12px; border-radius:6px; cursor:pointer; font-weight:600; }
+    button.ghost { background:transparent; color:#0b71ea; border:1px solid #0b71ea; }
+    .question { padding:12px; border-radius:8px; margin-bottom:8px; background: #fbfbff; border:1px solid #eee; }
+    .qtitle { font-weight:700; margin-bottom:6px; }
+    .answer { margin-top:6px; padding:8px; background:#f8f8f8; border-radius:6px; display:none; color:#0a2f6d; }
+    .show .answer { display:block; }
+    .small { font-size:0.9rem; color:#444; }
+    .section-title { margin-top:18px; margin-bottom:8px; font-weight:800; color:#0b3d91; }
+    footer { margin-top:24px; color:#666; font-size:0.9rem; }
+    @media print {
+      .controls, header .meta { display:none; }
+      body { padding:0.6cm; }
+      .question { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>計算機網路 Ch02 — 模擬考 100 題（含答案）</h1>
+      <div class="meta">覆蓋：儲存單位、傳輸媒介、IEEE 802、CSMA/CD、Ethernet 規格、Gigabit 技術、調變等</div>
+    </div>
+    <div class="controls">
+      <button id="toggleAll">顯示答案</button>
+      <button id="collapseAll" class="ghost">隱藏所有</button>
+    </div>
+  </header>
+
+  <p class="small">使用方法：按 <strong>顯示答案</strong> 可展開全部答案；每題也可點題目區塊切換單題答案顯示。</p>
+
+  <div id="questions">
+
+    <!-- 1-15 -->
+    <div class="section-title">第一部分：單位、速度、基礎觀念（1–15）</div>
+
+    <div class="question" data-ans="8">
+      <div class="qtitle">1. 1 Byte = 多少 bit？</div>
+      <div class="answer">答案：8</div>
+    </div>
+
+    <div class="question" data-ans="1024">
+      <div class="qtitle">2. 1 KB（電腦系統）等於多少 Bytes？</div>
+      <div class="answer">答案：1024</div>
+    </div>
+
+    <div class="question" data-ans="C">
+      <div class="qtitle">3. 下列哪一個是儲存單位？<br><span class="small">A. bps B. MB/s C. GB D. Mbps</span></div>
+      <div class="answer">答案：C</div>
+    </div>
+
+    <div class="question" data-ans="bps">
+      <div class="qtitle">4. ISP 使用的速度單位為？</div>
+      <div class="answer">答案：bps</div>
+    </div>
+
+    <div class="question" data-ans="Bps">
+      <div class="qtitle">5. 電腦下載視窗常用的單位是？</div>
+      <div class="answer">答案：Bps</div>
+    </div>
+
+    <div class="question" data-ans="10 MB/s">
+      <div class="qtitle">6. 若網路速度為 80 Mbps，最快可下載速度約為？</div>
+      <div class="answer">答案：約 10 MB/s（80 ÷ 8 = 10）</div>
+    </div>
+
+    <div class="question" data-ans="B">
+      <div class="qtitle">7. 下列哪個是錯誤的換算？<br><span class="small">A. 1 Byte = 8 bits B. 1 KB = 1000 Bytes C. 1 Mbps = 1,000,000 bps D. 10 Mbps ≈ 1.25 MB/s</span></div>
+      <div class="answer">答案：B（電腦系統常用 1 KB = 1024 Bytes）</div>
+    </div>
+
+    <div class="question" data-ans="非對稱式下載快、上傳慢">
+      <div class="qtitle">8. ADSL 的主要特性是？</div>
+      <div class="answer">答案：非對稱式，下載通常比上傳快</div>
+    </div>
+
+    <div class="question" data-ans="MB（百萬）">
+      <div class="qtitle">9. 10⁶ 代表的單位是？</div>
+      <div class="answer">答案：MB（百萬）</div>
+    </div>
+
+    <div class="question" data-ans="C">
+      <div class="qtitle">10. 下列哪一個單位最大？<br><span class="small">A. GB B. KB C. TB D. MB</span></div>
+      <div class="answer">答案：C（TB 最大）</div>
+    </div>
+
+    <div class="question" data-ans="約 80 秒">
+      <div class="qtitle">11. 10 Mbps 網路下載 100 MB 檔案約需多久？</div>
+      <div class="answer">答案：約 80 秒（100 MB = 800 Mb；800 / 10 = 80 s）</div>
+    </div>
+
+    <div class="question" data-ans="C">
+      <div class="qtitle">12. 下列何者與儲存單位無關？<br><span class="small">A. bit B. Byte C. Mbps D. KB</span></div>
+      <div class="answer">答案：C（Mbps 為傳輸速率）</div>
+    </div>
+
+    <div class="question" data-ans="Mbps">
+      <div class="qtitle">13. 下列何者為傳輸速度單位？</div>
+      <div class="answer">答案：Mbps</div>
+    </div>
+
+    <div class="question" data-ans="除以 8">
+      <div class="qtitle">14. Mbps 轉 MB/s 需？</div>
+      <div class="answer">答案：除以 8</div>
+    </div>
+
+    <div class="question" data-ans="12.5 MB/s">
+      <div class="qtitle">15. 100 Mbps 網路最快下載速度約為？</div>
+      <div class="answer">答案：約 12.5 MB/s</div>
+    </div>
+
+    <!-- 16-35 -->
+    <div class="section-title">第二部分：有線媒介（16–35）</div>
+
+    <div class="question" data-ans="RJ-45">
+      <div class="qtitle">16. 雙絞線的接頭為？</div>
+      <div class="answer">答案：RJ-45</div>
+    </div>
+
+    <div class="question" data-ans="8">
+      <div class="qtitle">17. 一條 UTP 內含幾條銅線？</div>
+      <div class="answer">答案：8（4 對）</div>
+    </div>
+
+    <div class="question" data-ans="線色排列不同">
+      <div class="qtitle">18. 568A 與 568B 最大差異為？</div>
+      <div class="answer">答案：線色排列不同</div>
+    </div>
+
+    <div class="question" data-ans="跳線、Crossover">
+      <div class="qtitle">19. 一端 568A 一端 568B 稱為？</div>
+      <div class="answer">答案：跳線（Crossover）</div>
+    </div>
+
+    <div class="question" data-ans="100 公尺">
+      <div class="qtitle">20. UTP 最長單段是？</div>
+      <div class="answer">答案：100 公尺</div>
+    </div>
+
+    <div class="question" data-ans="STP">
+      <div class="qtitle">21. 具遮蔽能力的線是？</div>
+      <div class="answer">答案：STP（Shielded Twisted Pair）</div>
+    </div>
+
+    <div class="question" data-ans="1 Gbps">
+      <div class="qtitle">22. Cat 5e 支援速度最高為？</div>
+      <div class="answer">答案：1 Gbps</div>
+    </div>
+
+    <div class="question" data-ans="10 Gbps">
+      <div class="qtitle">23. Cat 6a（或 6e）可支援？</div>
+      <div class="answer">答案：10 Gbps</div>
+    </div>
+
+    <div class="question" data-ans="10Base-T（10 Mbps）">
+      <div class="qtitle">24. Cat 3 用於？</div>
+      <div class="answer">答案：早期 10Base-T（10 Mbps）</div>
+    </div>
+
+    <div class="question" data-ans="Cat 5e">
+      <div class="qtitle">25. 最常見家庭網路使用？</div>
+      <div class="answer">答案：Cat 5e（或 Cat6）</div>
+    </div>
+
+    <div class="question" data-ans="RG-62">
+      <div class="qtitle">26. 同軸電纜最細的是？</div>
+      <div class="answer">答案：RG-62（數字越大越細）</div>
+    </div>
+
+    <div class="question" data-ans="RG-58（細同軸）">
+      <div class="qtitle">27. 10Base2 使用哪種線？</div>
+      <div class="answer">答案：RG-58（細同軸）</div>
+    </div>
+
+    <div class="question" data-ans="RG-11（粗同軸）">
+      <div class="qtitle">28. 10Base5 使用？</div>
+      <div class="answer">答案：RG-11（粗同軸）</div>
+    </div>
+
+    <div class="question" data-ans="BNC">
+      <div class="qtitle">29. BNC 接頭用於？</div>
+      <div class="answer">答案：細同軸（例如 RG-58）</div>
+    </div>
+
+    <div class="question" data-ans="RG-59">
+      <div class="qtitle">30. 有線電視常用？</div>
+      <div class="answer">答案：RG-59</div>
+    </div>
+
+    <div class="question" data-ans="匯流排 Bus">
+      <div class="qtitle">31. 同軸電纜需用終端電阻的拓樸為？</div>
+      <div class="answer">答案：匯流排（Bus）拓樸</div>
+    </div>
+
+    <div class="question" data-ans="單模光纖">
+      <div class="qtitle">32. 光纖最抗干擾的是？</div>
+      <div class="answer">答案：單模光纖（長距離性能最好）</div>
+    </div>
+
+    <div class="question" data-ans="短距離（大樓內）">
+      <div class="qtitle">33. 多模光纖常用於？</div>
+      <div class="answer">答案：短距離（如大樓內）</div>
+    </div>
+
+    <div class="question" data-ans="雷射">
+      <div class="qtitle">34. 單模光纖使用哪種光源？</div>
+      <div class="answer">答案：雷射（Laser）</div>
+    </div>
+
+    <div class="question" data-ans="速度最快、距離最遠、抗干擾最強">
+      <div class="qtitle">35. 光纖哪項正確？</div>
+      <div class="answer">答案：速度最快、距離最遠、抗電磁干擾最佳</div>
+    </div>
+
+    <!-- 36-45 -->
+    <div class="section-title">第三部分：IEEE 802（36–45）</div>
+
+    <div class="question" data-ans="Ethernet">
+      <div class="qtitle">36. 802.3 是？</div>
+      <div class="answer">答案：Ethernet（乙太網）</div>
+    </div>
+
+    <div class="question" data-ans="Wi-Fi">
+      <div class="qtitle">37. 802.11 是？</div>
+      <div class="answer">答案：Wi-Fi（無線區域網）</div>
+    </div>
+
+    <div class="question" data-ans="Bluetooth / ZigBee">
+      <div class="qtitle">38. 802.15 包含？</div>
+      <div class="answer">答案：Bluetooth / ZigBee（個人區域網）</div>
+    </div>
+
+    <div class="question" data-ans="LLC + MAC">
+      <div class="qtitle">39. Data Link layer 包含？</div>
+      <div class="answer">答案：LLC（邏輯連結）與 MAC（媒體存取）</div>
+    </div>
+
+    <div class="question" data-ans="邏輯連結控制">
+      <div class="qtitle">40. LLC 屬於？</div>
+      <div class="answer">答案：邏輯連結控制（Logical Link Control）</div>
+    </div>
+
+    <div class="question" data-ans="媒體存取控制">
+      <div class="qtitle">41. MAC 負責？</div>
+      <div class="answer">答案：媒體存取控制（Media Access Control）</div>
+    </div>
+
+    <div class="question" data-ans="48 bits">
+      <div class="qtitle">42. MAC 地址長度？</div>
+      <div class="answer">答案：48 bits（6 Bytes）</div>
+    </div>
+
+    <div class="question" data-ans="廠商代號">
+      <div class="qtitle">43. MAC 地址前 3 Bytes 是？</div>
+      <div class="answer">答案：廠商代號（OUI）</div>
+    </div>
+
+    <div class="question" data-ans="L2">
+      <div class="qtitle">44. MAC 地址屬於 OSI 第幾層？</div>
+      <div class="answer">答案：第 2 層（資料連結層）</div>
+    </div>
+
+    <div class="question" data-ans="802.3">
+      <div class="qtitle">45. CSMA/CD 屬於？</div>
+      <div class="answer">答案：IEEE 802.3（Ethernet）</div>
+    </div>
+
+    <!-- 46-63 -->
+    <div class="section-title">第四部分：CSMA/CD 與 Ethernet Frame（46–63）</div>
+
+    <div class="question" data-ans="Listen">
+      <div class="qtitle">46. CSMA/CD 中「先聽後送」是？</div>
+      <div class="answer">答案：Listen（先聽載波）</div>
+    </div>
+
+    <div class="question" data-ans="Jam Signal">
+      <div class="qtitle">47. 碰撞後要發送？</div>
+      <div class="answer">答案：Jam Signal（擾亂訊號）</div>
+    </div>
+
+    <div class="question" data-ans="Backoff">
+      <div class="qtitle">48. 退後機制是？</div>
+      <div class="answer">答案：Backoff（退後重傳）</div>
+    </div>
+
+    <div class="question" data-ans="有線乙太網">
+      <div class="qtitle">49. CSMA/CD 用於？</div>
+      <div class="answer">答案：有線乙太網（Ethernet）</div>
+    </div>
+
+    <div class="question" data-ans="CSMA/CA">
+      <div class="qtitle">50. 無線網路使用？</div>
+      <div class="answer">答案：CSMA/CA（碰撞避免）</div>
+    </div>
+
+    <div class="question" data-ans="64 Bytes">
+      <div class="qtitle">51. 乙太網最小訊框大小？</div>
+      <div class="answer">答案：64 Bytes</div>
+    </div>
+
+    <div class="question" data-ans="1518 Bytes">
+      <div class="qtitle">52. 最大訊框大小？</div>
+      <div class="answer">答案：1518 Bytes（含頭與 FCS）</div>
+    </div>
+
+    <div class="question" data-ans="Padding">
+      <div class="qtitle">53. 不足 46 Bytes 要？</div>
+      <div class="answer">答案：Padding（填充）</div>
+    </div>
+
+    <div class="question" data-ans="錯誤偵測">
+      <div class="qtitle">54. FCS 用於？</div>
+      <div class="answer">答案：錯誤偵測（Frame Check Sequence）</div>
+    </div>
+
+    <div class="question" data-ans="6 Bytes">
+      <div class="qtitle">55. Ethernet Frame 中 MAC 地址為？</div>
+      <div class="answer">答案：6 Bytes（48 bits）</div>
+    </div>
+
+    <div class="question" data-ans="邊送邊聽">
+      <div class="qtitle">56. CSMA/CD 中偵測碰撞時機？</div>
+      <div class="answer">答案：邊送邊聽（送的同時監聽）</div>
+    </div>
+
+    <div class="question" data-ans="一空閒就傳">
+      <div class="qtitle">57. 1-Persistent 發送方式？</div>
+      <div class="answer">答案：一有空閒就立刻傳送</div>
+    </div>
+
+    <div class="question" data-ans="避免碰撞">
+      <div class="qtitle">58. CSMA/CA 特性？</div>
+      <div class="answer">答案：盡量避免碰撞（碰撞發生前預防）</div>
+    </div>
+
+    <div class="question" data-ans="無法邊送邊聽">
+      <div class="qtitle">59. CSMA/CD 無法用於無線原因？</div>
+      <div class="answer">答案：無線設備多數無法在傳送時同時聽到其他訊號（無法邊送邊聽）</div>
+    </div>
+
+    <div class="question" data-ans="CSMA/CD">
+      <div class="qtitle">60. 匯流排拓樸使用？</div>
+      <div class="answer">答案：CSMA/CD（或早期共用媒介）</div>
+    </div>
+
+    <div class="question" data-ans="Ethernet（含 Hub / Switch）">
+      <div class="qtitle">61. 星狀拓樸使用？</div>
+      <div class="answer">答案：常見於雙絞線乙太網（透過 Hub 或 Switch）</div>
+    </div>
+
+    <div class="question" data-ans="共用碰撞域">
+      <div class="qtitle">62. Hub 的特性？</div>
+      <div class="answer">答案：所有連接埠在同一碰撞域，會有碰撞</div>
+    </div>
+
+    <div class="question" data-ans="每 port 獨立碰撞域">
+      <div class="qtitle">63. Switch 的特性？</div>
+      <div class="answer">答案：Switch 會分割碰撞域，大部分情況每個 port 為獨立碰撞域</div>
+    </div>
+
+    <!-- 64-75 -->
+    <div class="section-title">第五部分：Ethernet 規格（64–75）</div>
+
+    <div class="question" data-ans="10 Mbps、粗同軸、500m">
+      <div class="qtitle">64. 10Base5：列出速度、線材、最大距離</div>
+      <div class="answer">答案：10 Mbps、粗同軸（RG-11）、500 m（Bus）</div>
+    </div>
+
+    <div class="question" data-ans="10 Mbps、細同軸、185m">
+      <div class="qtitle">65. 10Base2：列出速度、線材、最大距離</div>
+      <div class="answer">答案：10 Mbps、細同軸（RG-58）、185 m（Bus）</div>
+    </div>
+
+    <div class="question" data-ans="10 Mbps、UTP、100m">
+      <div class="qtitle">66. 10BaseT：列出速度、線材、最大距離</div>
+      <div class="answer">答案：10 Mbps、UTP、100 m（Star）</div>
+    </div>
+
+    <div class="question" data-ans="100 Mbps、Cat5、100m">
+      <div class="qtitle">67. 100BaseTX：列出速度、線材、最大距離</div>
+      <div class="answer">答案：100 Mbps、Cat5、100 m</div>
+    </div>
+
+    <div class="question" data-ans="1 Gbps、Cat5e/6、100m">
+      <div class="qtitle">68. 1000BaseT：列出速度、線材、最大距離</div>
+      <div class="answer">答案：1 Gbps、Cat5e/6、100 m</div>
+    </div>
+
+    <div class="question" data-ans="基頻">
+      <div class="qtitle">69. "Base" 在規格名稱中代表？</div>
+      <div class="answer">答案：基頻（Baseband）</div>
+    </div>
+
+    <div class="question" data-ans="Twisted Pair（雙絞線）">
+      <div class="qtitle">70. "T" 在規格名稱中代表？</div>
+      <div class="answer">答案：Twisted Pair（雙絞線）</div>
+    </div>
+
+    <div class="question" data-ans="終端電阻">
+      <div class="qtitle">71. 10Base5（匯流排）通常需要安裝什麼？</div>
+      <div class="answer">答案：終端電阻（避免訊號反射）</div>
+    </div>
+
+    <div class="question" data-ans="對">
+      <div class="qtitle">72. 10Base2 用 BNC 接頭？（是／否）</div>
+      <div class="answer">答案：對</div>
+    </div>
+
+    <div class="question" data-ans="Cat5">
+      <div class="qtitle">73. 100BaseTX 所需最少等級？</div>
+      <div class="answer">答案：Cat5（或更高）</div>
+    </div>
+
+    <div class="question" data-ans="Cat5e">
+      <div class="qtitle">74. 1000BaseT 所需最少等級？</div>
+      <div class="answer">答案：Cat5e（或 Cat6）</div>
+    </div>
+
+    <div class="question" data-ans="星狀">
+      <div class="qtitle">75. 雙絞線乙太網常見拓樸為？</div>
+      <div class="answer">答案：星狀拓樸（透過 Hub/Switch）</div>
+    </div>
+
+    <!-- 76-85 -->
+    <div class="section-title">第六部分：Gigabit 技術（76–85）</div>
+
+    <div class="question" data-ans="避免高速下碰撞偵測失效">
+      <div class="qtitle">76. Gigabit Ethernet 為何要延長時槽時間？</div>
+      <div class="answer">答案：為了在高速下仍能偵測碰撞，避免碰撞偵測失效</div>
+    </div>
+
+    <div class="question" data-ans="4096 bit-times">
+      <div class="qtitle">77. Gigabit 的新時槽時間為？</div>
+      <div class="answer">答案：4096 bit-times（等效於 512 bytes 時槽）</div>
+    </div>
+
+    <div class="question" data-ans="512 Bytes">
+      <div class="qtitle">78. 最小訊框需補到？</div>
+      <div class="answer">答案：512 Bytes（透過 Carrier Extension）</div>
+    </div>
+
+    <div class="question" data-ans="碰撞偵測">
+      <div class="qtitle">79. Carrier Extension 是為了？</div>
+      <div class="answer">答案：確保碰撞可被偵測（延長訊框）</div>
+    </div>
+
+    <div class="question" data-ans="提升效率">
+      <div class="qtitle">80. Frame Bursting 的目的？</div>
+      <div class="answer">答案：提升效率，允許連續傳送多個訊框</div>
+    </div>
+
+    <div class="question" data-ans="65536 bits">
+      <div class="qtitle">81. Frame Bursting 上限？</div>
+      <div class="answer">答案：65536 bits（Gigabit 規格中的一個值）</div>
+    </div>
+
+    <div class="question" data-ans="448 Bytes">
+      <div class="qtitle">82. 延伸載波長度為多少？</div>
+      <div class="answer">答案：448 Bytes（64 + 448 = 512 Bytes）</div>
+    </div>
+
+    <div class="question" data-ans="多個訊框">
+      <div class="qtitle">83. Frame Bursting 可連續傳送？</div>
+      <div class="answer">答案：多個訊框（連續傳送以提升效率）</div>
+    </div>
+
+    <div class="question" data-ans="非資料填充符號">
+      <div class="qtitle">84. Carrier Extension 附加的資料稱為？</div>
+      <div class="answer">答案：延伸符號（非資料，放在 FCS 後面）</div>
+    </div>
+
+    <div class="question" data-ans="0.096 μs">
+      <div class="qtitle">85. Gigabit 的 Interframe Gap（示例值）為？</div>
+      <div class="answer">答案：約 0.096 μs（以 96-bit 時間為基準）</div>
+    </div>
+
+    <!-- 86-90 -->
+    <div class="section-title">第七部分：5-4-3 規則（86–90）</div>
+
+    <div class="question" data-ans="最多 5 區段">
+      <div class="qtitle">86. 5 在 5-4-3 規則中代表？</div>
+      <div class="answer">答案：最多 5 個區段（segments）</div>
+    </div>
+
+    <div class="question" data-ans="最多 4 個中繼器">
+      <div class="qtitle">87. 4 在 5-4-3 規則中代表？</div>
+      <div class="answer">答案：最多 4 個中繼器（repeaters）</div>
+    </div>
+
+    <div class="question" data-ans="最多 3 段可接電腦">
+      <div class="qtitle">88. 3 在 5-4-3 規則中代表？</div>
+      <div class="answer">答案：5 段中最多 3 段可接電腦，其餘 2 段只能延長距離</div>
+    </div>
+
+    <div class="question" data-ans="925m">
+      <div class="qtitle">89. 10Base2 若每段 185 m，依 5-4-3 規則最大距離為？</div>
+      <div class="answer">答案：185 m × 5 = 925 m</div>
+    </div>
+
+    <div class="question" data-ans="2500m">
+      <div class="qtitle">90. 10Base5 若每段 500 m，依 5-4-3 規則最大距離為？</div>
+      <div class="answer">答案：500 m × 5 = 2500 m</div>
+    </div>
+
+    <!-- 91-100 -->
+    <div class="section-title">第八部分：調變（91–100）</div>
+
+    <div class="question" data-ans="取樣 → 量化 → 編碼">
+      <div class="qtitle">91. PCM 的三個步驟為何？</div>
+      <div class="answer">答案：取樣（Sampling）→ 量化（Quantization）→ 編碼（Encoding）</div>
+    </div>
+
+    <div class="question" data-ans="取樣頻率 ≥ 2 倍">
+      <div class="qtitle">92. 取樣定理（Nyquist）要求？</div>
+      <div class="answer">答案：取樣頻率必須 ≥ 原訊號頻率的 2 倍</div>
+    </div>
+
+    <div class="question" data-ans="PAM">
+      <div class="qtitle">93. 取樣後尚未編碼的波形稱為？</div>
+      <div class="answer">答案：PAM（脈衝振幅調變訊號）</div>
+    </div>
+
+    <div class="question" data-ans="振幅">
+      <div class="qtitle">94. ASK 改變哪個屬性？</div>
+      <div class="answer">答案：振幅（Amplitude）</div>
+    </div>
+
+    <div class="question" data-ans="頻率">
+      <div class="qtitle">95. FSK 改變哪個屬性？</div>
+      <div class="answer">答案：頻率（Frequency）</div>
+    </div>
+
+    <div class="question" data-ans="相位">
+      <div class="qtitle">96. PSK 改變哪個屬性？</div>
+      <div class="answer">答案：相位（Phase）</div>
+    </div>
+
+    <div class="question" data-ans="振幅 + 相位">
+      <div class="qtitle">97. QAM 結合哪兩種調變？</div>
+      <div class="answer">答案：振幅（ASK）與相位（PSK）</div>
+    </div>
+
+    <div class="question" data-ans="4 bits">
+      <div class="qtitle">98. 16-QAM 每個符號可傳多少 bits？</div>
+      <div class="answer">答案：4 bits（2⁴ = 16）</div>
+    </div>
+
+    <div class="question" data-ans="6 bits">
+      <div class="qtitle">99. 64-QAM 每個符號可傳多少 bits？</div>
+      <div class="answer">答案：6 bits（2⁶ = 64）</div>
+    </div>
+
+    <div class="question" data-ans="8 bits">
+      <div class="qtitle">100. 256-QAM 每個符號可傳多少 bits？</div>
+      <div class="answer">答案：8 bits（2⁸ = 256）</div>
+    </div>
+
+  </div>
+
+  <footer>
+    建檔說明：將本文件另存為 <code>Ch02_mock_exam.html</code>，用瀏覽器開啟。<br>
+    若需要我可把它改為「只出題、不含答案」的版本，或生成 PDF / 可列印試卷版。
+  </footer>
+
+  <script>
+    (function(){
+      const qlist = Array.from(document.querySelectorAll('.question'));
+      // Toggle single question on click
+      qlist.forEach(q=>{
+        q.addEventListener('click', e=>{
+          // avoid toggling when clicking answer button area (none here)
+          q.classList.toggle('show');
+        });
+      });
+
+      const toggleAllBtn = document.getElementById('toggleAll');
+      const collapseBtn = document.getElementById('collapseAll');
+      let shown = false;
+      toggleAllBtn.addEventListener('click', ()=>{
+        shown = !shown;
+        qlist.forEach(q=> q.classList.toggle('show', shown));
+        toggleAllBtn.textContent = shown ? '隱藏答案' : '顯示答案';
+      });
+      collapseBtn.addEventListener('click', ()=>{
+        shown = false;
+        qlist.forEach(q=> q.classList.remove('show'));
+        toggleAllBtn.textContent = '顯示答案';
+      });
+    })();
+  </script>
+</body>
+</html>
